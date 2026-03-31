@@ -1,14 +1,10 @@
-<!Doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Green Earth</title>
-    <link
-      rel="shortcut icon"
-      href="./assets/about.png"
-      type="image/x-icon"
-    />
+    <link rel="shortcut icon" href="./assets/about.png" type="image/x-icon" />
     <link
       href="https://cdn.jsdelivr.net/npm/daisyui@5"
       rel="stylesheet"
@@ -23,7 +19,51 @@
       referrerpolicy="no-referrer"
     />
   </head>
-<body>
 
+  <body>
+    <!-- HEADER -->
+    <header class="shadow-sm bg-green-700">
+      <div class="navbar container mx-auto">
+        <div class="navbar-start">
+          <div class="dropdown">
+            <div
+              tabindex="0"
+              role="button"
+              class="btn btn-ghost lg:hidden text-white"
+            >
+              <i class="fa-solid fa-bars"></i>
+            </div>
+
+            <ul
+              tabindex="0"
+              class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+            >
+              <li><a class="font-semibold">About</a></li>
+              <li><a class="font-semibold">Gallery</a></li>
+              <li><a class="font-semibold">Plant a Tree</a></li>
+            </ul>
+          </div>
+
+          <a href="#" class="text-xl text-white font-bold ml-2">
+            Green Earth
+          </a>
+        </div>
+
+        <!-- Desktop Menu -->
+        <div class="navbar-center hidden lg:flex">
+          <ul class="flex gap-4 menu-horizontal px-1 text-white">
+            <li><a class="font-semibold">About</a></li>
+            <li><a class="font-semibold">Gallery</a></li>
+            <li><a class="font-semibold">Plant a Tree</a></li>
+          </ul>
+        </div>
+
+        <div class="navbar-end">
+          <a class="btn btn-warning text-green-600 rounded-full">
+            Plant a Tree
+          </a>
+        </div>
+      </div>
+    </header>
   </body>
 </html>
