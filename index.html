@@ -96,12 +96,37 @@
     <!-- MODAL -->
     <div id="modal-container"></div>
 
+        <!-- TREE SECTION -->
+    <section class="bg-green-50 py-20">
+      <h1 class="text-3xl font-bold text-center mb-10">Choose Your Trees</h1>
+
+      <div class="grid grid-cols-12 container mx-auto px-4 md:px-2">
+        <!-- CATEGORY -->
+        <div class="col-span-12 lg:col-span-2 mb-8 lg:mb-0">
+          <div class="sticky top-10">
+            <h1 class="text-xl px-2 font-bold">Categories</h1>
+
+            <div class="px-2 py-5">
+              <i
+                class="fa-solid fa-bars lg:hidden cursor-pointer text-2xl"
+                id="toggle-btn"
+              ></i>
+            </div>
+
+            <ul
+              class="space-y-3 px-2 hidden lg:block"
+              id="category-container"
+            ></ul>
+          </div>
+        </div>
+    </section>
+
     <!-- ABOUT -->
     <section class="py-16 px-6 bg-green-50">
       <h2 class="text-3xl font-bold text-center mb-10">About the Campaign</h2>
 
       <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-8 items-center">
-        <img src="assets/about.png" class="rounded-xl shadow-md" />
+        <img src="./assets/about.png" class="rounded-xl shadow-md" />
 
         <div>
           <p class="text-gray-600 mb-4">
