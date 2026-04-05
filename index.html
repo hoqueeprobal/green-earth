@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -96,7 +96,7 @@
     <!-- MODAL -->
     <div id="modal-container"></div>
 
-        <!-- TREE SECTION -->
+    <!-- TREE SECTION -->
     <section class="bg-green-50 py-20">
       <h1 class="text-3xl font-bold text-center mb-10">Choose Your Trees</h1>
 
@@ -119,6 +119,37 @@
             ></ul>
           </div>
         </div>
+
+        <!-- POSTS -->
+        <div class="lg:col-span-8 col-span-12">
+          <div class="hidden" id="loader">
+            <span
+              class="loading loading-dots text-green-700 w-15 h-15 mx-auto"
+            ></span>
+          </div>
+
+          <div
+            class="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 p-2 gap-4"
+            id="post-container"
+          ></div>
+        </div>
+
+        <!-- CART -->
+        <div class="col-span-12 lg:col-span-2 mt-8 lg:mt-0">
+          <div class="sticky top-10 h-fit bg-white/50 rounded-md py-4">
+            <h1 class="text-xl font-bold px-3">
+              <i class="fa-solid fa-cart-shopping mr-2"></i> Your Cart
+            </h1>
+
+            <div class="py-5 space-y-4" id="cart-container"></div>
+
+            <h1 class="font-bold text-lg px-3">
+              Total : ৳
+              <span id="total-price">0</span>
+            </h1>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- ABOUT -->
