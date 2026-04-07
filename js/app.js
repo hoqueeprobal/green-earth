@@ -13,3 +13,14 @@ let addToCart = [];
 document.getElementById("toggle-btn").addEventListener("click", () => {
   categoryContainer.classList.toggle("hidden");
 });
+
+// Loader function
+const loading = (status) => {
+  if (status) {
+    loader.classList.remove("hidden");
+    loader.classList.add("flex");
+  } else {
+    loader.classList.remove("flex");
+    loader.classList.add("hidden");
+  }
+};
