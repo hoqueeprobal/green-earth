@@ -8,3 +8,8 @@ const totalPrice = document.getElementById("total-price");
 
 // Store cart items
 let addToCart = [];
+
+// Toggle category button
+document.getElementById("toggle-btn").addEventListener("click", () => {
+  categoryContainer.classList.toggle("hidden");
+});
