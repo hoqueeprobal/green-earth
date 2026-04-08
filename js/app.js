@@ -67,6 +67,42 @@ const fetchAllPost = async () => {
   }
 };
 
+// Display plant data in UI
+const loadPost = async (data) => {
+  postContainer.innerHTML = "";
+  data.forEach((plant) => {
+    const div = document.createElement("div");
+    div.className =
+      "card bg-white border border-green-100 rounded-2xl shadow-sm hover:shadow-md transition p-3 card-parent";
+    div.innerHTML = `
+  <figure class="overflow-hidden rounded-xl">
+    <img class="w-full h-48 object-cover"
+      src="${plant.image}"
+      alt="plant"
+      />
+  </figure>
+  
+  <div class="card-body px-2 py-4 space-y-3">
+  <h2 class="text-lg font-semibold text-gray-800 cursor-pointer" onclick="showDetails('${plant.id}')">${plant.name}</h2>
+  <p class="text-sm text-gray-600 line-clamp-2 ">
+      ${plant.description}
+      </p>
+      <div class="flex justify-between items-center">
+      <span class="inline-block bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full">
+      ${plant.category}
+      </span>
+      <span class="text-lg font-bold text-black-600">৳<span class="price ">${plant.price}</span></span>
+      </div>
+      <div class="card-actions mt-2">
+     <button class="btn bg-green-600 hover:text-black text-white rounded-full w-full text-base font-medium py-2 cart-btn" data-id="${plant.id}">
+     Add to Cart
+     </button> 
+      </div>
+      </div>
+      `;
+    postContainer.appendChild(div);
+  });
+};
 
 // Load data when app starts
 fetchAllPost();
