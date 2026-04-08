@@ -24,3 +24,8 @@ const loading = (status) => {
     loader.classList.add("hidden");
   }
 };
+
+// Load data when app starts
+fetchAllPost();
+loadCategory();
+
