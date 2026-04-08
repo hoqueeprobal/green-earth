@@ -53,7 +53,21 @@ const loadCategory = async () => {
   }
 };
 
+// Load all plant data from API
+const fetchAllPost = async () => {
+  try {
+    loading(true);
+    const res = await fetch("https://openapi.programming-hero.com/api/plants");
+    const data = await res.json();
+    loadPost(data.plants);
+  } catch (err) {
+    console.log(err);
+  } finally {
+    loading(false);
+  }
+};
+
+
 // Load data when app starts
+fetchAllPost();
 loadCategory();
-
-
