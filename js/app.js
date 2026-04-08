@@ -25,7 +25,35 @@ const loading = (status) => {
   }
 };
 
+// Fetch categories from API and render them dynamically
+const loadCategory = async () => {
+  try {
+    categoryContainer.innerHTML = "";
+
+    const allTypesLi = document.createElement("li");
+    allTypesLi.id = "all-types";
+    allTypesLi.className =
+      "hover:bg-green-700 hover:text-white rounded-lg cursor-pointer px-3 py-2 active-li bg-green-700 text-white";
+    allTypesLi.textContent = "All Types";
+    categoryContainer.appendChild(allTypesLi);
+
+    const res = await fetch("https://openapi.programming-hero.com/api/categories");
+    const data = await res.json();
+
+    data.categories.forEach((cat) => {
+      const li = document.createElement("li");
+      li.id = cat.id;
+      li.className =
+        "hover:bg-green-700 hover:text-white rounded-lg cursor-pointer px-3 py-2 active-li";
+      li.textContent = cat.category_name;
+      categoryContainer.appendChild(li);
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 // Load data when app starts
-fetchAllPost();
 loadCategory();
+
 
