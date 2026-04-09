@@ -140,7 +140,39 @@ categoryContainer.addEventListener("click", (e) => {
   }
 });
 
+//Show details in modal
+const showDetails = async (id) => {
+  try {
+    const res = await fetch(`https://openapi.programming-hero.com/api/plant/${id}`);
+    const data = await res.json();
+    const detail = data.plants;
 
+    const dialog = document.createElement("dialog");
+    dialog.className = "modal modal-middle";
+
+    dialog.innerHTML = `
+      <div class="modal-box space-y-3">
+        <h3 class="text-2xl font-bold">${detail.name}</h3>
+
+        <img src="${detail.image}" class="w-full h-60 object-cover rounded-md"/>
+
+        <p><strong>Category:</strong> ${detail.category}</p>
+        <p><strong>Price:</strong> ৳${detail.price}</p>
+        <p>${detail.description}</p>
+
+        <form method="dialog">
+          <button class="btn">Close</button>
+        </form>
+      </div>
+    `;
+
+    modalContainer.innerHTML = "";
+    modalContainer.appendChild(dialog);
+    dialog.showModal();
+  } catch (err) {
+    console.log(err);
+  }
+};
 
 // Load data when app starts
 fetchAllPost();
