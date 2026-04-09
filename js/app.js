@@ -104,6 +104,44 @@ const loadPost = async (data) => {
   });
 };
 
+// Category filtering 
+const plantsByCategorie = async (id) => {
+  try {
+    loading(true);
+
+    const res = await fetch(`https://openapi.programming-hero.com/api/category/${id}`);
+    const data = await res.json();
+
+    loadPost(data.plants);
+  } catch (err) {
+    console.log(err);
+  } finally {
+    loading(false);
+  }
+};
+
+// Category click event
+categoryContainer.addEventListener("click", (e) => {
+  if (e.target.nodeName === "LI") {
+    document.querySelectorAll(".active-li").forEach((li) => {
+      li.classList.remove("bg-green-700", "text-white");
+    });
+
+    const id = e.target.id;
+    e.target.classList.add("bg-green-700", "text-white");
+
+    if (id === "all-types") {
+      fetchAllPost();
+    } else {
+      plantsByCategorie(id);
+    }
+
+    categoryContainer.classList.add("hidden");
+  }
+});
+
+
+
 // Load data when app starts
 fetchAllPost();
 loadCategory();
