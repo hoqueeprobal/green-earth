@@ -37,7 +37,9 @@ const loadCategory = async () => {
     allTypesLi.textContent = "All Types";
     categoryContainer.appendChild(allTypesLi);
 
-    const res = await fetch("https://openapi.programming-hero.com/api/categories");
+    const res = await fetch(
+      "https://openapi.programming-hero.com/api/categories",
+    );
     const data = await res.json();
 
     data.categories.forEach((cat) => {
@@ -104,12 +106,14 @@ const loadPost = async (data) => {
   });
 };
 
-// Category filtering 
+// Category filtering
 const plantsByCategorie = async (id) => {
   try {
     loading(true);
 
-    const res = await fetch(`https://openapi.programming-hero.com/api/category/${id}`);
+    const res = await fetch(
+      `https://openapi.programming-hero.com/api/category/${id}`,
+    );
     const data = await res.json();
 
     loadPost(data.plants);
@@ -143,7 +147,9 @@ categoryContainer.addEventListener("click", (e) => {
 //Show details in modal
 const showDetails = async (id) => {
   try {
-    const res = await fetch(`https://openapi.programming-hero.com/api/plant/${id}`);
+    const res = await fetch(
+      `https://openapi.programming-hero.com/api/plant/${id}`,
+    );
     const data = await res.json();
     const detail = data.plants;
 
@@ -173,6 +179,35 @@ const showDetails = async (id) => {
     console.log(err);
   }
 };
+
+// Add to cart functionality
+postContainer.addEventListener("click", (e) => {
+  if (e.target.nodeName === "BUTTON") {
+    const card = e.target.closest(".card-parent");
+
+    const name = card.querySelector("h2").textContent;
+    const price = parseInt(card.querySelector(".price").textContent);
+    const id = e.target.dataset.id;
+
+    const existingItem = addToCart.find((item) => item.id === id);
+
+    if (existingItem) {
+      existingItem.quantity++;
+    } else {
+      addToCart.push({
+        name,
+        price,
+        id,
+        quantity: 1,
+      });
+    }
+
+    alert(`${name} added to cart`);
+
+    updateCart();
+    calculatePrice();
+  }
+});
 
 // Load data when app starts
 fetchAllPost();
