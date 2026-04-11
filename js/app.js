@@ -209,6 +209,30 @@ postContainer.addEventListener("click", (e) => {
   }
 });
 
+// update cart
+const updateCart = () => {
+  cartContainer.innerHTML = "";
+
+  addToCart.forEach((item, index) => {
+    const div = document.createElement("div");
+
+    div.innerHTML = `
+      <div class="flex items-center justify-between bg-green-50 p-2 rounded-md">
+        <div>
+          <h3 class="font-semibold">${item.name}</h3>
+          <p>৳${item.price} × ${item.quantity}</p>
+        </div>
+
+        <button onclick="removeItem(${index})" class="text-red-500">
+          X
+        </button>
+      </div>
+    `;
+
+    cartContainer.appendChild(div);
+  });
+};
+
 // Load data when app starts
 fetchAllPost();
 loadCategory();
