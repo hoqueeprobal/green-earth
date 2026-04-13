@@ -233,6 +233,25 @@ const updateCart = () => {
   });
 };
 
+// total price calculation
+const calculatePrice = () => {
+  const total = addToCart.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0
+  );
+
+  totalPrice.textContent = total;
+};
+
+// Remove item from cart
+const removeItem = (index) => {
+  addToCart.splice(index, 1);
+
+  updateCart();
+  calculatePrice();
+};
+
+
 // Load data when app starts
 fetchAllPost();
 loadCategory();
