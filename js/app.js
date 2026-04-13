@@ -96,7 +96,7 @@ const loadPost = async (data) => {
       <span class="text-lg font-bold text-black-600">৳<span class="price ">${plant.price}</span></span>
       </div>
       <div class="card-actions mt-2">
-     <button class="btn bg-green-600 hover:text-black text-white rounded-full w-full text-base font-medium py-2 cart-btn" data-id="${plant.id}">
+    <button class="btn bg-green-600 text-white rounded-full w-full text-base font-medium py-2 cart-btn transition duration-300 ease-in-out hover:scale-105 hover:bg-green-800 hover:shadow-lg" data-id="${plant.id}">
      Add to Cart
      </button> 
       </div>
@@ -237,7 +237,7 @@ const updateCart = () => {
 const calculatePrice = () => {
   const total = addToCart.reduce(
     (sum, item) => sum + item.price * item.quantity,
-    0
+    0,
   );
 
   totalPrice.textContent = total;
@@ -250,7 +250,6 @@ const removeItem = (index) => {
   updateCart();
   calculatePrice();
 };
-
 
 // Load data when app starts
 fetchAllPost();
